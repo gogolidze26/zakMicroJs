@@ -1,4 +1,4 @@
-/*!zakmicrojs 1.0.0, Copyright 20120 Zakro Gogolidze, released under MIT license */
+/*!zakmicrojs 1.0.0, Copyright 20120 Zakro Gogolidze */
 let _ = ( () => {
 
 	'use strict';
