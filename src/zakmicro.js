@@ -76,7 +76,7 @@ let _ = ( () => {
 		// 	return selector.nextElementSibling;
 		// }
 		// End tegs
-		
+		 
 		return eval(action + '();');
 	}
 
