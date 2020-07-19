@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <script src="./src/zakmicro.js"></script>
+  <style>
+    .centered {
+      text-align: center;
+    }
+    #d-none {
+      display: none;
+    }
+  </style>
+</head>
+  <body>
+
+    <div class="centered">
+      <h1 class="d-none">zakMicroJs</h1>
+      <p class="d-none">The sweet, juicy bits!</p>
+    </div>
+
+    <script>
+      _.ready(() => {
+        _.findAll('.d-none', 'show');
+      });
+    </script>
+
+  </body>
+</html>
