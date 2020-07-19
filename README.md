@@ -127,6 +127,7 @@ _.on(element, 'event here', (e) => {
 **Fetch data from API**
 
 Syntax: *_.fetch( url = '', params = {}, option = {} ) *.
+
 option: 
 - method: *GET, POST, PUT, DELETE, etc* .
 - mode: *no-cors, cors, same-origin*.
