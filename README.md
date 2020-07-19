@@ -36,7 +36,7 @@ _.ready( () => {
 **_.find(selector, "hide")**
 
 Hides matching elements.
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +54,7 @@ Hides matching elements.
 **_.find(selector, "show")**
 
 Shows matching elements.
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +73,7 @@ Shows matching elements.
 
 Gets or optionally sets the CSS property for matching elements.
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,6 +91,53 @@ Gets or optionally sets the CSS property for matching elements.
 </script>
 </body>
 </html>
+```
+**Add, Remove, Toggle Class**
+
+```javascript
+// add
+_.find('selector', 'classAdd', [ "class"]); // add single class
+_.find('selector', 'classAdd', [ "class", "class"]); // add multiple classes
+
+// remove
+_.find('selector', 'classRemove', [ "class"]); // remove single class
+_.find('selector', 'classRemove', [ "class", "class"]); // remove multiple classes
+
+// toggle
+_.find('selector', 'classToggle', [ "class"]); // toggle single class
+_.find('selector', 'classToggle', [ "class", "class"]); // toggle multiple classes
+```
+**Attributes**
+```javascript
+_.find('selector', 'attrSet', ['data-name', 'attribute-name']); // set attribute
+```
+**Listeners**
+
+Syntax: *_on.(element, event, callback, useCapture)* .
+You can use events: click, mouseover, mouseout, resize, etc.
+
+```javascript
+let element =  _.find('selector');
+
+_.on(element, 'event here', (e) => {
+ 	console.log(e);
+});
+```
+**Fetch data from API**
+Syntax: *_.fetch( url = '', params = {}, option = {} ) *.
+option: 
+- method: *GET, POST, PUT, DELETE, etc* .
+- mode: *no-cors, cors, same-origin*.
+- cache: *default, no-cache, reload, force-cache, only-if-cached*.
+- credentials: *include, same-origin, omit*.
+- redirect: *manual, follow, error*.
+- referrerPolicy: *// no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url*.
+
+```javascript
+_.fetch('API url here', {},  {method: 'GET'})
+  .then(data => {
+	console.log(data); // JSON data parsed by `data.json()` call
+ });
 ```
 
 ## Contributing
