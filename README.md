@@ -108,6 +108,7 @@ _.find('selector', 'classToggle', [ "class"]); // toggle single class
 _.find('selector', 'classToggle', [ "class", "class"]); // toggle multiple classes
 ```
 **Attributes**
+
 ```javascript
 _.find('selector', 'attrSet', ['data-name', 'attribute-name']); // set attribute
 ```
@@ -124,6 +125,7 @@ _.on(element, 'event here', (e) => {
 });
 ```
 **Fetch data from API**
+
 Syntax: *_.fetch( url = '', params = {}, option = {} ) *.
 option: 
 - method: *GET, POST, PUT, DELETE, etc* .
