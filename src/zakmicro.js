@@ -1,11 +1,11 @@
 /*!zakmicrojs 1.0.0, Copyright 20120 Zakro Gogolidze */
 
-'use strict';
-
 let w = window, 
 		d = document;
 
 w._ = ( () => {
+
+	'use strict';
 
 	// Create the methods object
 	let zak = {};
@@ -24,7 +24,7 @@ w._ = ( () => {
 	 */
 	zak.find = (selector, action, element, scope) => {
 		if (!selector) throw new Error('Please provide a selector.');
-		selector =  scope ? scope.querySelector(selector) : document.querySelector(selector);
+		selector =  scope ? scope.querySelector(selector) : d.querySelector(selector);
 		if(action) doAction(selector, action, element);
 		else return selector;
 	};
@@ -92,7 +92,7 @@ w._ = ( () => {
 	 */
 	zak.findAll = (selector, scope) => {
 		if (!selector) throw new Error('Please provide a selector.');
-		return scope ? scope.querySelectorAll(selector) : document.querySelectorAll(selector);
+		return scope ? scope.querySelectorAll(selector) : d.querySelectorAll(selector);
 	};
 
 	/**
@@ -151,8 +151,8 @@ w._ = ( () => {
 	}
 
 	zak.ready = (callback) => {
-		if (document.readyState != "loading") callback();
-		else document.addEventListener("DOMContentLoaded", callback);
+		if (d.readyState != "loading") callback();
+		else d.addEventListener("DOMContentLoaded", callback);
 	}
 
 	// Expose the public zak
