@@ -1,7 +1,11 @@
 /*!zakmicrojs 1.0.0, Copyright 20120 Zakro Gogolidze */
-let _ = ( () => {
 
-	'use strict';
+'use strict';
+
+let w = window, 
+		d = document;
+
+w._ = ( () => {
 
 	// Create the methods object
 	let zak = {};
@@ -111,28 +115,39 @@ let _ = ( () => {
 	 * @param  {Object}   option
 	 * @param  {Object}   params
 	 */
-	zak.fetch = ( url = '', params = {}, option = {} ) => {
+	zak.fetch = (url = '', params = {}, option = {} ) => {
+		let type = option.method.toUpperCase() ?? 'GET',
+				f;
+
 		// Default options are marked with *
-		return fetch(url, {
-			method: option.method ?? 'GET', // *GET, POST, PUT, DELETE, etc.
+		let options = {
+			method: type, // *GET, POST.
 			mode: option.mode ?? 'cors', // no-cors, *cors, same-origin
-			cache: option.cache ?? 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			cache: option.cache ?? 'no-cache', // *no-cache, reload, force-cache, only-if-cached
 			credentials: option.credentials ?? 'same-origin', // include, *same-origin, omit
 			headers: {
+				'Accept': 'application/json',
 				'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded',
 			},
 			redirect: option.redirect ?? 'follow', // manual, *follow, error
-			referrerPolicy: option.referrerPolicy ?? 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-			// body: JSON.stringify(params) // body data type must match "Content-Type" header
-		})
-		.then(response => response.json())
-		// .then(result => {
-		// 	console.log('Success:', result);
-		// })
-		.catch(error => {
-			console.error('Error:', error);
-		});
+			referrerPolicy: option.referrerPolicy ?? 'no-referrer', // *no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		};
+		
+		if(type == 'POST') {
+			f =  fetch(url, {
+				options,
+				// body: JSON.stringify(params) // body data type must match "Content-Type" header
+			});
+		} else {
+			f =  fetch(url, {
+				options,
+			});
+		}
+
+		return f.then(response => response.json())
+						.catch(error => {
+							console.error('Error:', error);
+						});
 	}
 
 	zak.ready = (callback) => {
