@@ -5,7 +5,7 @@
 **The sweet, juicy bits**
 - zakMicroJs is really tiny: 5KB, 2KB gzipped, small enough to stick inline on single page web apps, saving an extra HTTP request.
 - Supports modern desktop and mobile browsers including Chrome, Firefox, Internet Explorer, Opera and Safari.
-- Even supports creaky old browsers like IE6, I don't know why you would do this.
+- Don't supports creaky old browsers like IE6, I don't know why you would do this.
 - No animation cruft, instead use CSS transitions like a nice person.
 
 ## Installation
