@@ -7,7 +7,7 @@
     .centered {
       text-align: center;
     }
-    #d-none {
+    .d-none {
       display: none;
     }
   </style>
@@ -16,12 +16,12 @@
 
     <div class="centered">
       <h1 class="d-none">zakMicroJs</h1>
-      <p class="d-none">The sweet, juicy bits!</p>
+      <p>The sweet, juicy bits!</p>
     </div>
 
     <script>
       _.ready(() => {
-        _.findAll('.d-none', 'show');
+        _.find('.d-none', 'show');
       });
     </script>
 
