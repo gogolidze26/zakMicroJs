@@ -20,7 +20,6 @@ Syntax is simple: `_.method(selector)`. We use `_` namespace.
 **CSS selector**
 ```javascript
 _.findAll("p"); // Returns an array of all paragraph elements
-_.findAll("p", "hide"); // Hides all paragraphs
 _.find("#foo", "hide"); // Hides element with id equal to "foo"
 _.find(".foo", "show");  // Shows elements with "foo" CSS class
 ```
