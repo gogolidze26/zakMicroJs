@@ -4,12 +4,12 @@ let _ = ( () => {
 	'use strict';
 
 	// Create the methods object
-	let methods = {};
+	let zak = {};
 	// Avaible actions
 	let actions = ["hide", "show", "classAdd", "classRemove", "classToggle", "styleAdd", 'attrSet', 'attrGet', 'next'];
 
 	//
-	// Methods
+	// zak
 	//
 
 	/**
@@ -18,7 +18,7 @@ let _ = ( () => {
 	 * @param  {Node} scope      An element to search within [optional]
 	 * @return {Node}            The first matching element
 	 */
-	methods.find = (selector, action, element, scope) => {
+	zak.find = (selector, action, element, scope) => {
 		if (!selector) throw new Error('Please provide a selector.');
 		selector =  scope ? scope.querySelector(selector) : document.querySelector(selector);
 		if(action) doAction(selector, action, element);
@@ -86,7 +86,7 @@ let _ = ( () => {
 	 * @param  {Node} scope      An element to search within [optional]
 	 * @return {NodeList}        The matching elements
 	 */
-	methods.findAll = (selector, scope) => {
+	zak.findAll = (selector, scope) => {
 		if (!selector) throw new Error('Please provide a selector.');
 		return scope ? scope.querySelectorAll(selector) : document.querySelectorAll(selector);
 	};
@@ -98,7 +98,7 @@ let _ = ( () => {
 	 * @param  {Function} callback    The callback to run on the event
 	 * @param  {Boolean}  useCapture  If true, set useCapture to true [optional]
 	 */
-	methods.on = (elem, event, callback, useCapture) => {
+	zak.on = (elem, event, callback, useCapture) => {
 		if (!elem) throw new Error('Please provide an element to attach the event to.');
 		if (!event) throw new Error('Please provide an event to listen for.');
 		if (!callback || typeof callback !== 'function') throw new Error('Please provide a valid callback function to run');
@@ -111,7 +111,7 @@ let _ = ( () => {
 	 * @param  {Object}   option
 	 * @param  {Object}   params
 	 */
-	methods.fetch = ( url = '', params = {}, option = {} ) => {
+	zak.fetch = ( url = '', params = {}, option = {} ) => {
 		// Default options are marked with *
 		return fetch(url, {
 			method: option.method ?? 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -135,12 +135,12 @@ let _ = ( () => {
 		});
 	}
 
-	methods.ready = (callback) => {
+	zak.ready = (callback) => {
 		if (document.readyState != "loading") callback();
 		else document.addEventListener("DOMContentLoaded", callback);
 	}
 
-	// Expose the public methods
-	return methods;
+	// Expose the public zak
+	return zak;
 
 })();
