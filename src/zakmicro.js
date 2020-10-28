@@ -1,4 +1,4 @@
-/*!zakmicrojs 1.0.0, Copyright 20120 Zakro Gogolidze */
+/*!zakmicrojs 1.0.0, Copyright 2020 Zakro Gogolidze */
 
 let w = window, 
 		d = document;
