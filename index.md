@@ -1,5 +1,3 @@
-# zakMicroJs
-
 **A simple JavaScript micro-library**
 
 **The sweet, juicy bits**
